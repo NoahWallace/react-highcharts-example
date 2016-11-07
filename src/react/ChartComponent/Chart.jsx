@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import {Chart} from 'react-highcharts/dist/react-highcharts';
-//const Chart = require('react-highcharts/dist/react-highcharts.js').Chart;
+//const Chart = require('react-highcharts/dist/react-highcharts');
 
 export class Chart1 extends React.Component {
     constructor(props) {

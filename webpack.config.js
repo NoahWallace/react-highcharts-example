@@ -9,19 +9,19 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: '/[name]/[name].bundle.js',
-        sourceMapFilename:'[file].map'
+        sourceMapFilename:'[file].map',
+        target: "commonjs"
     },
     resolve:{
         extensions: ['', '.js', '.jsx'],
-        alias:{
-            'react': 'React'
-        }
+
     },
     module: {
         loaders: [{
-            test: /\.jsx?$/,
-            loader: 'babel',
-            exclude: /node_modules/,
+            test: /\.js(x?)$/,
+            loader: 'babel-loader',
+            include: path.resolve(__dirname,"src/react"),
+            exclude: path.resolve(__dirname,"node_modules"),
             query: {
                 presets: ['es2015', 'react']
             }
