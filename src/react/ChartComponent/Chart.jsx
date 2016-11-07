@@ -52,10 +52,12 @@ export class Chart1 extends React.Component {
             }]
         };
     }
+
     render(){
+        let callbacks= [(chart)=>{console.log(chart,1);console.log(chart,2)}];
         return (
             <div>
-        <Chart id="chart1" config={this.state} />
+        <Chart id="chart1" config={this.state} callbacks={callbacks} />
                 </div>
         )
     }
