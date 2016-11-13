@@ -1,9 +1,11 @@
 import * as React from 'react';
-import {Chart} from 'react-highcharts-ts/dist/react-highcharts-ts';
+import * as highcharts from 'highcharts';
+import { Chart } from 'react-highcharts-ts/lib/index';
 //const Chart = require('react-highcharts/dist/react-highcharts');
 
-export class Chart1 extends React.Component {
-    constructor(props) {
+export class Chart1 extends React.Component<any,any> {
+    state:any;
+    constructor(props:any) {
         super(props);
         this.state = {
             title: {
@@ -54,7 +56,7 @@ export class Chart1 extends React.Component {
     }
 
     render(){
-        let callbacks= [(chart)=>{console.log(chart,1);console.log(chart,2)}];
+        let callbacks= [(chart:Highcharts.ChartObject)=>{console.log(chart,1);console.log(chart,2)}];
         return (
             <div>
         <Chart id="chart1" config={this.state} callbacks={callbacks} />

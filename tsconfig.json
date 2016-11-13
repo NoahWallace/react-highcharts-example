@@ -1,0 +1,33 @@
+{
+  "compileOnSave": false ,
+  "compilerOptions": {
+    "types": ["react"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "target": "es5",
+    "sourceMap": true,
+    "lib":["es2015","dom", "es6"],
+    "noEmit": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "allowUnusedLabels": false,
+    "jsx": "react",
+    "strictNullChecks": false,
+    "baseUrl": ".",
+    "noEmitHelpers": false,
+    "noResolve": false,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+
+  },
+
+  "exclude": [
+    "node_modules",
+    "dist",
+    "*.js"
+  ]
+}

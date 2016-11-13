@@ -2,9 +2,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-    devtool:"source-map",
+    devtool:"eval",
     entry: {
-        react:'./src/react/index.js'
+        //react:'./src/react/index.js',
+        reactts:'./src/react-ts/index.tsx'
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -13,18 +14,22 @@ module.exports = {
         target: "commonjs"
     },
     resolve:{
-        extensions: ['', '.js', '.jsx'],
-
+        extensions: ['', '.js', '.jsx', '.ts', '.tsx'],
     },
     module: {
         loaders: [{
             test: /\.js(x?)$/,
             loader: 'babel-loader',
             include: path.resolve(__dirname,"src/react"),
-            exclude: path.resolve(__dirname,"node_modules"),
+
             query: {
                 presets: ['es2015', 'react']
             }
+        },{
+            test: /\.ts(x?)$/,
+            loader: 'ts-loader',
+            include: path.resolve(__dirname,"src/react-ts"),
+
         },{
             test:/\.html/,
             loader:'html',
@@ -33,6 +38,10 @@ module.exports = {
     plugins:[
         new HtmlWebpackPlugin({
             template:path.resolve('./src/react/index.html'),
+            inject:'body'
+        }),
+        new HtmlWebpackPlugin({
+            template:path.resolve('./src/react-ts/index.html'),
             inject:'body'
         })
     ]
